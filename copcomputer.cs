@@ -1,35 +1,45 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace mech_1
+namespace ConsoleApp2
 {
+    [DebuggerDisplay("COMPUTER MODEL = {_price * 0.267}")]
     class Computer
     {
-        public string model;
-        public int price;
-        public int numberOfProcessors;
-        public float screenSize;
-        public bool isOn;
+
+        public string _model;
+        public int _price;
+        public int _numberOfProcessors;
+        public float _screenSize;
+        public bool _isOn = false;
         public int tellmetheprice()
         {
-            return price;
+            return _price;
         }
         public float tellscreensize()
         {
-            return screenSize;
+            return _screenSize;
         }
-       public void turnon()
+        public void turnon()
         {
             Console.WriteLine("turning on");
+            _isOn = true;
         }
         public void turnoff()
         {
             Console.WriteLine("shutting down");
+            _isOn = false;
         }
         public void addprocessor()
         {
-
+            _numberOfProcessors++;
+        }
+        public override string ToString()
+        {
+            return $"Computer model = {_model} price = {_price} number of processors = { _numberOfProcessors} screen size={_screenSize} is on = {_isOn}";
         }
 
     }
